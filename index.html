@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You 💌</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Quicksand:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pastel: {
+                            pink: '#ffd1dc',
+                            purple: '#e6e6fa',
+                            blue: '#aec6cf',
+                            yellow: '#fdfd96',
+                            green: '#77dd77'
+                        }
+                    },
+                    fontFamily: {
+                        'quicksand': ['Quicksand', 'sans-serif'],
+                        'poppins': ['Poppins', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, #ffd1dc 0%, #e6e6fa 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 10px 10px 40px 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .polaroid:nth-child(even) {
+            transform: rotate(3deg);
+        }
+
+        .polaroid:hover {
+            transform: scale(1.05) rotate(0deg);
+            z-index: 10;
+        }
+
+        /* Floating elements background */
+        .hearts {
+            position: fixed;
+            top: -10vh;
+            transform: translateY(0);
+            animation: fall 10s linear infinite;
+            color: #ff9eaa;
+            font-size: 24px;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        @keyframes fall {
+            100% {
+                transform: translateY(110vh);
+            }
+        }
+
+        /* Hidden initially */
+        #main-content {
+            display: none;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body class="flex flex-col items-center justify-center p-4">
+    <!-- Audio Element -->
+    <!-- Ganti src dengan file lagu kamu sendiri jika ingin, misalnya 'lagu.mp3' -->
+    <audio id="bgMusic" loop>
+        <source
+            src="https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview115/v4/8a/5f/31/8a5f3140-6511-83b8-db42-54f57f9fcf9c/mzaf_2978547573649057419.plus.aac.p.m4a"
+            type="audio/mp4">
+        Your browser does not support the audio element.
+    </audio>
+    <!-- Cover Page -->
+    <div id="cover"
+        class="fixed inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-pastel-pink to-pastel-purple z-50 cursor-pointer transition-opacity duration-1000"
+        onclick="openLetter()">
+        <div class="animate-bounce-slow text-6xl mb-6 text-pink-500">
+            <i class="fa-solid fa-envelope-open-heart"></i>
+        </div>
+        <h1 class="text-3xl font-poppins font-bold text-gray-800 text-center px-4 animate-float">Tap to open your
+            digital letter! 💌</h1>
+        <p class="mt-4 text-gray-600 font-medium">Please turn on your volume 🎶</p>
+    </div>
+    <!-- Main Content -->
+    <div id="main-content"
+        class="w-full max-w-2xl bg-white/60 backdrop-blur-md rounded-3xl shadow-xl p-8 my-8 relative overflow-hidden transition-all duration-1000">
+
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1
+                class="text-4xl md:text-5xl font-poppins font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 mb-2">
+                Happy Birthday & Happy Semhas! 🎂</h1>
+            <h2 class="text-2xl md:text-3xl font-poppins font-semibold text-gray-700">Najwa Syifa Salsabila 🎉</h2>
+        </div>
+        <!-- Letter Body -->
+        <div class="space-y-6 text-lg md:text-xl text-gray-800 leading-relaxed text-center font-medium">
+            <p>Hai Baby 💕</p>
+
+            <p>Cantikkkkuuu 💕 Hari ini adalah hari yang paling spesial buat kamu, dan aku seneng banget bisa ngerayain
+                momen indah ini bareng kamu.</p>
+
+            <p>Aku bener-bener bangga dan bersyukur banget punya kamu. Ngeliat perjuangan kamu dari awal ngerjain KTI,
+                begadang-begadang, sampai akhirnya bisa selesai Semhas... <i>You did so great, my love!</i> Makasih ya
+                udah selalu kuat, sabar, dan nggak pernah nyerah. Kamu hebat banget dan <i>I'm sooo proud of you!</i>
+                😭💖</p>
+
+            <p>Di hari ulang tahunmu ini, doaku semoga kamu selalu sehat, makin happy, dan selalu dikelilingi sama
+                orang-orang yang sayang sama kamu. Semoga semua capekmu selama ini kebayar sama hasil yang paling manis
+                yaa.</p>
+
+            <p>Semoga kedepannya semua mimpi dan cita-citamu pelan-pelan bisa terwujud. Dan yang terpenting, semoga kita
+                bisa terus bareng-bareng, ngelewatin semua masa-masa seneng maupun sedih berdua. <i>I'll always be your
+                    number one supporter.</i> ✨</p>
+
+            <p>Oh ya, soal gelang silver itu. Awalnya aku mau ngasih cincin, tapi aku ga tau ukuran jari kamu, <i>that's
+                    why</i> aku always nanya BB kamu brapa. Soalnya kamu bilang mau diet, takut berubah-ubah ukuran jari
+                kamu hehe :)<br><br>Mungkin nanti pas kamu sidang akhir nanti aku kasih deh yang pas di jari kamu,
+                sebagai ganti dari komitmen aku ke kamu. Semoga kamu paham ya makna gelang silver ituu.</p>
+
+            <p>Sengaja aku beli boneka Loopy soalnya mirip kamu, aku nyari yang gede gada, topinya Lotso mirip kamu
+                juga, <i>and also it's pink!!!</i></p>
+
+            <p><i>I promise that I will always be there for you no matter what. I love you so much!</i> 💕</p>
+
+            <div class="mt-8 bg-white/80 rounded-2xl p-6 shadow-md border-2 border-dashed border-pink-400">
+                <h3 class="text-xl font-bold text-pink-500 mb-4 font-poppins"><i class="fa-solid fa-ticket"></i>
+                    Special Birthday Coupons <i class="fa-solid fa-ticket"></i></h3>
+                <p class="text-sm text-gray-500 mb-4">Screenshot and redeem anytime with me!</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <div
+                        class="bg-gradient-to-r from-pink-200 to-pink-100 rounded-xl p-4 shadow-sm border border-pink-300 w-full">
+                        <i class="fa-solid fa-sushi text-3xl mb-2 text-pink-600"></i>
+                        <p class="font-bold text-gray-700">1x Free Sushi Date</p>
+                        <p class="text-xs text-gray-500 mt-1">Berlaku kapanpun kamu laper!</p>
+                    </div>
+                    <div
+                        class="bg-gradient-to-r from-purple-200 to-purple-100 rounded-xl p-4 shadow-sm border border-purple-300 w-full">
+                        <i class="fa-solid fa-film text-3xl mb-2 text-purple-600"></i>
+                        <p class="font-bold text-gray-700">1x Free Movie Ticket</p>
+                        <p class="text-xs text-gray-500 mt-1">Bebas pilih film yang mau ditonton!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="divider h-px w-full bg-gray-300 my-8"></div>
+        <!-- Photos Section -->
+        <h3 class="text-center text-xl font-bold text-gray-700 mb-6 font-poppins"><i
+                class="fa-solid fa-camera-retro mr-2"></i> Our Core Memories</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4 pb-4">
+            <!-- Polaroid 1 -->
+            <div class="polaroid mx-auto w-full max-w-[250px]">
+                <img src="foto 1.jpeg" alt="Koalanya Ilang :(" class="w-full h-auto object-cover rounded">
+                <p class="text-center mt-3 font-semibold text-gray-600 font-poppins text-sm">Koalanya Ilang :(</p>
+            </div>
+
+            <!-- Polaroid 2 -->
+            <div class="polaroid mx-auto w-full max-w-[250px]">
+                <img src="foto 3.jpeg" alt="Semhas Student" class="w-full h-auto object-cover rounded">
+                <p class="text-center mt-3 font-semibold text-gray-600 font-poppins text-sm">Officially A.Md.TLM soon?
+                    🎓</p>
+            </div>
+
+            <!-- Polaroid 3 -->
+            <div class="polaroid mx-auto w-full max-w-[250px] md:col-span-2">
+                <img src="foto 2.jpeg" alt="Mantep" class="w-full h-auto object-cover rounded">
+                <p class="text-center mt-3 font-semibold text-gray-600 font-poppins text-sm"> Mantep! 😜</p>
+            </div>
+        </div>
+
+    </div>
+    <script>
+        // Background floating stars/sparkles
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.classList.add('hearts');
+            sparkle.innerHTML = '✨';
+            sparkle.style.left = Math.random() * 100 + 'vw';
+            sparkle.style.animationDuration = Math.random() * 5 + 5 + 's'; // 5-10s
+            sparkle.style.fontSize = Math.random() * 15 + 10 + 'px';
+            document.body.appendChild(sparkle);
+
+            setTimeout(() => {
+                sparkle.remove();
+            }, 10000);
+        }
+
+        setInterval(createSparkle, 800);
+        // Open Letter Logic
+        function openLetter() {
+            const cover = document.getElementById('cover');
+            const mainContent = document.getElementById('main-content');
+            const audio = document.getElementById('bgMusic');
+
+            // Try playing audio
+            audio.volume = 0.5;
+            audio.play().catch(e => console.log("Audio play failed:", e));
+            // Hide cover
+            cover.style.opacity = '0';
+            setTimeout(() => {
+                cover.style.display = 'none';
+
+                // Show main content
+                mainContent.style.display = 'block';
+                setTimeout(() => {
+                    mainContent.style.opacity = '1';
+                    mainContent.classList.add('animate-fade-in-up');
+                }, 50);
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>
